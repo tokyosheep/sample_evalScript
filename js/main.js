@@ -5,8 +5,6 @@ window.onload = function(){
     `use strict`;
     const csInterface = new CSInterface();
     themeManager.init();
-    const extensionId = csInterface.getExtensionID(); 
-    const filePath = csInterface.getSystemPath(SystemPath.EXTENSION) +`/js/`;
     const extensionRoot = csInterface.getSystemPath(SystemPath.EXTENSION) +`/jsx/`;
     const jsxName = `call.jsx`;//各種ファイルのパス情報を変数にまとめる
 
