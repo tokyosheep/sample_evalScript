@@ -8,7 +8,7 @@ window.onload = function(){
     const extensionId = csInterface.getExtensionID(); 
     const filePath = csInterface.getSystemPath(SystemPath.EXTENSION) +`/js/`;
     const extensionRoot = csInterface.getSystemPath(SystemPath.EXTENSION) +`/jsx/`;
-    const jsxName = `call.jsx`;
+    const jsxName = `call.jsx`;//各種ファイルのパス情報を変数にまとめる
 
     const call_jsx = document.getElementById(`call_jsx`);
     const btn_test = document.getElementById(`btn_test`);
@@ -18,11 +18,11 @@ window.onload = function(){
 
     call_jsx.addEventListener(`click`,()=>{
         csInterface.evalScript(`$.evalFile("${extensionRoot}${jsxName}")`,(o)=>{
-            const layerData = JSON.parse(o);
+            const layerData = JSON.parse(o);//コールバックでjsxからアクティブなレイヤー情報を取得
             while(list.firstChild){
                 list.removeChild(list.firstChild);
             }
-            for(prop in layerData){
+            for(prop in layerData){//パネルに情報を表示させる
                 const li = document.createElement(`li`);
                 li.textContent = `Layer ${prop}:${layerData[prop]}`;
                 list.appendChild(li);
